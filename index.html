@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Pallavi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #282828, #1a1a1a);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 20px 0;
+            color: #ffcc00;
+        }
+        
+        .countdown {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        
+        .message {
+            font-size: 18px;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+
+        .trishul-icon {
+            font-size: 50px;
+            color: #ffcc00;
+        }
+
+        /* Reply Form */
+        .reply-form {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .reply-form label, .reply-form input, .reply-form textarea {
+            font-size: 16px;
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        .reply-form input[type="submit"] {
+            background-color: #ffcc00;
+            color: #1a1a1a;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Birthday, Pallavi! 🎉</h1>
+        
+        <p class="trishul-icon">🔱</p> <!-- Symbol for Lord Shiva's Trishul -->
+        
+        <div class="countdown" id="countdown"></div>
+        
+        <div class="message">
+            <p>Dear Pallavi,</p>
+            <p>
+                From the depths of my heart, I want to wish you a joyous and blessed birthday. You are someone truly special, and every moment I spent around you remain forever. May this year bring you closer to your dreams and shower you with endless happiness.
+            </p>
+            <p>
+                With love,<br>Your well-wisher
+            </p>
+        </div>
+
+        <!-- Reply Form -->
+        <form class="reply-form" action="https://formspree.io/f/xdkozazw" method="POST">
+            <label for="message">Your Reply:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <input type="submit" value="Send Reply">
+        </form>
+    </div>
+
+    <script>
+        // Countdown timer
+        const countdownElement = document.getElementById('countdown');
+        const birthdayDate = new Date('November 22, 2024 00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = birthdayDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = Only ${days}d ${hours}h ${minutes}m ${seconds}s until Pallavi's Birthday!;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "Happy Birthday, Pallavi! 🎉";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
