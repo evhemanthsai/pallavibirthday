@@ -11,50 +11,61 @@
             color: #ffffff;
             text-align: center;
             padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
         }
         
         .container {
-            max-width: 600px;
+            max-width: 90%;
             margin: auto;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             background-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
-            font-size: 36px;
-            margin: 20px 0;
+            font-size: 2em;
+            margin: 10px 0;
             color: #ffcc00;
         }
         
         .countdown {
-            font-size: 24px;
+            font-size: 1.2em;
             margin: 20px 0;
         }
         
         .message {
-            font-size: 18px;
-            margin: 30px 0;
+            font-size: 1em;
+            margin: 20px 0;
             line-height: 1.6;
         }
 
-        .trishul-icon {
-            font-size: 50px;
-            color: #ffcc00;
+        .image-container {
+            margin: 20px auto;
+            max-width: 200px;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 50%;
+            border: 2px solid #ffcc00;
         }
 
         /* Reply Form */
         .reply-form {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: left;
         }
 
-        .reply-form label, .reply-form input, .reply-form textarea {
-            font-size: 16px;
+        .reply-form label, 
+        .reply-form input, 
+        .reply-form textarea {
+            font-size: 1em;
             width: 100%;
             padding: 10px;
             margin: 8px 0;
+            box-sizing: border-box;
         }
 
         .reply-form input[type="submit"] {
@@ -65,6 +76,32 @@
             border: none;
             width: 100%;
             padding: 12px;
+            transition: background-color 0.3s;
+        }
+
+        .reply-form input[type="submit"]:hover {
+            background-color: #ffd633;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .countdown {
+                font-size: 1.5em;
+            }
+
+            .message {
+                font-size: 1.2em;
+            }
+
+            .reply-form label, 
+            .reply-form input, 
+            .reply-form textarea {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
@@ -72,14 +109,21 @@
     <div class="container">
         <h1>🎉 Happy Birthday, Pallavi! 🎉</h1>
         
-        <p class="trishul-icon">🔱</p> <!-- Symbol for Lord Shiva's Trishul -->
+        <!-- Image Section -->
+        <div class="image-container">
+            <img src="pallavi.png" alt="Pallavi's Image">
+        </div>
         
+        <!-- Countdown Section -->
         <div class="countdown" id="countdown"></div>
         
+        <!-- Message Section -->
         <div class="message">
             <p>Dear Pallavi,</p>
             <p>
-                From the depths of my heart, I want to wish you a joyous and blessed birthday. You are someone truly special, and every moment I spent around you remain forever. May this year bring you closer to your dreams and shower you with endless happiness.
+                From the depths of my heart, I want to wish you a joyous and blessed birthday. 
+                You are someone truly special, and every moment I spent around you remain forever. 
+                May this year bring you closer to your dreams and shower you with endless happiness.
             </p>
             <p>
                 With love,<br>Your well-wisher
@@ -109,7 +153,7 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            countdownElement.innerHTML = Only ${days}d ${hours}h ${minutes}m ${seconds}s + "until Pallavi's Birthday!";
+            countdownElement.innerHTML = `Only ${days}d ${hours}h ${minutes}m ${seconds}s until Pallavi's Birthday!`;
 
             if (distance < 0) {
                 clearInterval(countdownInterval);
